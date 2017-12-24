@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package protobuf;
+
+service Action {
+  rpc Song (SongRequest) returns (SongReply) {}
+  rpc MakeAWish (MakeAWishRequest) returns (stream MakeAWishReply){}
+}
+
+message SongRequest {
+  string title = 1;
+}
+
+message SongReply {
+  string lyric = 1;
+  string singer = 2;
+  uint32 year = 3;
+}
+
+message MakeAWishRequest {
+    string from = 1;
+    string to = 2;
+	string content = 3;
+}
+
+message MakeAWishReply {
+	string content = 1;
+}
